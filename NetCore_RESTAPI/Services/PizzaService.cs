@@ -13,6 +13,18 @@ public static class PizzaService
         {
             new Pizza {Id = 1, Name="Classic Italian", IssGlutenFree=false},
             new Pizza { Id = 2, Name = "Veggie", IssGlutenFree = true }
-    };
+        };
     }
+    //Get All Pizzas
+    public static List<Pizza> GetAll() => Pizzas;
+    //Get A Pizza with a specified Id
+    public static Pizza? Get(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
+    //Add new Pizza
+    public static void Add(Pizza pizza)
+    {
+        pizza.Id = nextId++;
+        Pizzas.Add(pizza);
+    }
+
+
 }
